@@ -1,0 +1,2 @@
+It seemed to me like this was supposed to be done client-side, but the closest I got in my attempts was using a spell to replicate the ability (which is what I'm including here).
+I did not manage to create the desired visual effect for the ability.
