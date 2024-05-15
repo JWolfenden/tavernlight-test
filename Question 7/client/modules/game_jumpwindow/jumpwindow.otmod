@@ -1,0 +1,9 @@
+Module
+  name: game_jumpwindow
+  description: Tavernlight Games test, Question 7
+  author: Jamie Wolfenden
+  website:
+  sandboxed: true
+  scripts: [ jumpwindow ]
+  @onLoad: init()
+  @onUnload: terminate()
