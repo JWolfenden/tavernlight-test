@@ -1,0 +1,10 @@
+local function releaseStorage(player)
+	player:setStorageValue(1000, -1)
+end
+
+function onLogout(player)
+	if player:getStorageValue(1000) == 1 then
+		addEvent(releaseStorage, 1000, player)
+		return true -- moved this line, served no purpose after the if statement as it would make the function always return true. I've assumed that something will need to check if this function returns true elsewhere, but if not then the line could be removed entirely
+	end
+end -- will return nil which is considered as false, so no need to explicitly return false at the end of the function

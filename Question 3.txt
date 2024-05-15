@@ -1,0 +1,11 @@
+function removeMemberFromPlayerParty(playerId, memberName) -- named function appropriately, changed parameter name to use camel case for consistency
+	player = Player(playerId)
+	local party = player:getParty()
+
+	for k,v in pairs(party:getMembers()) do
+		if v == Player(memberName) then
+			party:removeMember(v) -- replaced "Player(memberName)" with "v" to save a function call
+			return true; -- no need to continue loop once member found
+		end
+	end
+end -- will return nil which is considered as false, so no need to explicitly return false at the end of the function

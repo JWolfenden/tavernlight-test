@@ -1,0 +1,14 @@
+function printSmallGuildNames(memberCount)
+	local selectGuildQuery = "SELECT name FROM guilds WHERE max_members < %4d;" -- changed %d to %4d, to allow for numbers of up to 4 digits
+	local resultId = db.storeQuery(string.format(selectGuildQuery, memberCount))
+	
+	if resultId ~= false then -- check that query was successful before attempting to read it
+		repeat
+			-- retrieve and print "name" value of current record
+			local guildName = result.getString(resultId, "name") -- included resultId as a parameter in getString call
+			print(guildName)
+		until not result.next(resultId)	-- move to next record if there is one
+			
+		result.free(resultId) -- delete stored query
+	end
+end
